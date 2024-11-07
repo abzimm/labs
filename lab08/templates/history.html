@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NASA APOD - Historical</title>
+</head>
+<body>
+    <h1>Historical Astronomy Picture of the Day</h1>
+    <form method="POST">
+        <input type="date" name="date" required>
+        <input type="submit" value="View APOD">
+    </form>
+    
+    {% if image_url %}
+        <h2>{{ title }}</h2>
+        <p>Date: {{ date }}</p>
+        <img src="{{ image_url }}" alt="{{ title }}" style="max-width: 800px;">
+        <p>{{ description }}</p>
+        <p>Copyright: {{ copyright }}</p>
+    {% endif %}
+    
+    <p><a href="{{ url_for('home') }}">Back to Today's APOD</a></p>
+</body>
+</html>
